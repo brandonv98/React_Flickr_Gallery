@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
 
+//Router import
+import { Router, Route, Switch } from 'react-router'
+
 //App Components
 import Form from './components/Form';
 import MainNav from './components/MainNav';
