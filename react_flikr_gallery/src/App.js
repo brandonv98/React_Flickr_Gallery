@@ -13,15 +13,11 @@ class App extends Component {
 			<div className="App">
 
           <div class="container">
+            <Form />
 
-          <Form />
-
-          <MainNav />
-
+            <MainNav />
 
             <Results />
-
-
           </div>
 
       </div>
