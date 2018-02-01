@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import './App.css';
 
 //dependency's import
-import { Router, Route, BrowserRouter } from 'react-router';
 import axios from 'axios';
 
 //apiKey secret ;)
@@ -20,7 +19,7 @@ class App extends Component {
 		super();
 		this.state = {
 			photos: [],
-			loading: false,
+			loading: true,
 			searchText: '',
 		};
 	}
@@ -36,7 +35,8 @@ class App extends Component {
 			.then(response => {
 				this.setState({
 					photos: response.data.photos.photo,
-
+					searchText: query,
+					loading: false,
 				});
 			})
 			.catch(error => {
@@ -48,26 +48,34 @@ class App extends Component {
 		    e.preventDefault();
 		    console.log('Array value is : ', e.target.textContent);
 				this.preformSearch(e.target.textContent);
-		  }
+
+				}
+
 
 	render() {
-		console.log(this.state.photos);
+		console.log(this.state.searchText);
 		return (
 			<div className="App">
 
-          <div class="container">
+          <div className="container">
             <Form
 							onSearch={this.preformSearch}
 						 />
 
 						 <MainNav
 			 				handleClick={this.handleClick}
-			 				type="Dog"/>
-
-          	<ResultList
-            	title='Results'
-            	data={this.state.photos}
+			 				type="Dog"
 						/>
+						{/* loading state */}
+						{
+							(this.state.loading)
+							? <p>LOADING...</p>
+							: <ResultList
+	            	title={this.state.searchText}
+	            	data={this.state.photos}
+							/>
+						}
+
           </div>
 
       </div>

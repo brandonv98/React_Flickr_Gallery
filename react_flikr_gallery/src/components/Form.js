@@ -1,9 +1,5 @@
 import React, { Component } from 'react';
 
-import MainNav from './MainNav';
-
-
-
 export default class Form extends Component {
 
 	state = {
@@ -26,7 +22,7 @@ export default class Form extends Component {
 		console.log('Click value is : ', this.state.searchText);
 		return (
 		<div>
-			<form class="search-form" onSubmit={this.handleSubmit} >
+			<form className="search-form" onSubmit={this.handleSubmit} >
 				<input type="search"
 							 onChange={this.onSearchChange}
 							 name="search"
