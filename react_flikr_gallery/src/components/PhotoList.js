@@ -1,5 +1,6 @@
 import React from 'react';
 
+//Image list component
 const PhotoList = props => {
 
 	return (

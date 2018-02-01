@@ -11,12 +11,12 @@ const ResultList = props => {
 	let photos = results.map(photo => <Photo key={photo.id} url={'https://farm' + photo.farm + '.staticflickr.com/' + photo.server + '/' + photo.id + '_' + photo.secret + '.jpg'}/>);
 
 // Test for 404 error code
-	const noResults = results.length;
+	const isNoResults = results.length;
 
 	return (
 		<div>
 			{
-				(noResults > 0)
+				(isNoResults > 0)
 					? <PhotoList
 						title={props.title}
 						photos={photos}/>
