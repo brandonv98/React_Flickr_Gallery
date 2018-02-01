@@ -1,11 +1,11 @@
 import React from 'react';
 
 const MainNav = (props) => (
-	<nav class="main-nav">
+	<nav className="main-nav">
     <ul>
-      <li><a href='#'>Cats</a></li>
-      <li><a href='#'>Dogs</a></li>
-      <li><a href='#'>Computers</a></li>
+      <li><a onClick={props.handleClick}>Cats</a></li>
+      <li><a onClick={props.handleClick}>{props.type}</a></li>
+      <li><a onClick={props.handleClick}>Computers</a></li>
     </ul>
   </nav>
 );

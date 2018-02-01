@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 
 //dependency's import
-import { Router, Route } from 'react-router';
+import { Router, Route, BrowserRouter } from 'react-router';
 import axios from 'axios';
 
 //apiKey secret ;)
@@ -10,8 +10,8 @@ import apiKey from './config';
 
 //App Components
 import Form from './components/Form';
-import MainNav from './components/MainNav';
 import ResultList from './components/ResultList';
+import MainNav from './components/MainNav';
 
 
 class App extends Component {
@@ -20,12 +20,17 @@ class App extends Component {
 		super();
 		this.state = {
 			photos: [],
-			// loading: false
+			loading: false,
+			searchText: '',
 		};
 	}
 
 
-	componentDidMount = (query = 'code') => {
+	componentDidMount() {
+		this.preformSearch();
+	}
+
+	preformSearch = (query = 'code') => {
 		// Make a request for a user with a given ID
 		axios.get(`https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${query}&per_page=24&format=json&nojsoncallback=1`)
 			.then(response => {
@@ -39,6 +44,11 @@ class App extends Component {
 			});
 	}
 
+	handleClick = (e) => {
+		    e.preventDefault();
+		    console.log('Array value is : ', e.target.textContent);
+				this.preformSearch(e.target.textContent);
+		  }
 
 	render() {
 		console.log(this.state.photos);
@@ -47,10 +57,12 @@ class App extends Component {
 
           <div class="container">
             <Form
-							onSearch={this.componentDidMount}
+							onSearch={this.preformSearch}
 						 />
 
-            <MainNav />
+						 <MainNav
+			 				handleClick={this.handleClick}
+			 				type="Dog"/>
 
           	<ResultList
             	title='Results'
