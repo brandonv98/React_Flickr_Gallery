@@ -4,7 +4,7 @@ const PhotoList = props => {
 
 	return (
 		<div className="photo-container">
-			<h2>{props.title}</h2>
+			<h2>Results for {props.title}</h2>
 			<ul>
 		   	{props.photos}
 		  </ul>
