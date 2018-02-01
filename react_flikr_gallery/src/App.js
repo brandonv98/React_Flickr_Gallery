@@ -30,6 +30,7 @@ class App extends Component {
 		this.preformSearch();
 	}
 //API Connection
+// more information found here : https://github.com/axios/axios
 	preformSearch = (query = 'code') => {
 		// Make a request for a user with a given ID
 		axios.get(`https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${query}&per_page=24&format=json&nojsoncallback=1`)
