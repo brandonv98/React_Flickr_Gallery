@@ -17,10 +17,11 @@ class App extends Component {
 
 	constructor() {
 		super();
-		this.state = {
+		this.state = { // App State
 			photos: [],
-			loading: true,
-			searchText: '',
+			isLoading: true, // Is loading new images?
+			searchText: '', // Title for user's results
+			navName: ['Cats', 'Dogs', 'Computers'],
 		};
 	}
 
@@ -28,15 +29,15 @@ class App extends Component {
 	componentDidMount() {
 		this.preformSearch();
 	}
-
+//API Connection
 	preformSearch = (query = 'code') => {
 		// Make a request for a user with a given ID
 		axios.get(`https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${query}&per_page=24&format=json&nojsoncallback=1`)
 			.then(response => {
 				this.setState({
-					photos: response.data.photos.photo,
-					searchText: query,
-					loading: false,
+					photos: response.data.photos.photo, // Array Data
+					searchText: query, // Results Title
+					isLoading: false, // Oviii :)
 				});
 			})
 			.catch(error => {
@@ -44,16 +45,15 @@ class App extends Component {
 			});
 	}
 
+// Navigation handling
 	handleClick = (e) => {
 		    e.preventDefault();
 		    console.log('Array value is : ', e.target.textContent);
 				this.preformSearch(e.target.textContent);
-
 				}
 
 
 	render() {
-		console.log(this.state.searchText);
 		return (
 			<div className="App">
 
@@ -64,20 +64,18 @@ class App extends Component {
 
 						 <MainNav
 			 				handleClick={this.handleClick}
-			 				type="Dog"
+							navNames={this.state.navName}
 						/>
 						{/* loading state */}
 						{
-							(this.state.loading)
+							(this.state.isLoading)
 							? <p>LOADING...</p>
 							: <ResultList
 	            	title={this.state.searchText}
 	            	data={this.state.photos}
 							/>
 						}
-
           </div>
-
       </div>
 		);
 	}

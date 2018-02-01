@@ -1,14 +1,19 @@
 import React from 'react';
+// import NavLinks from './NavLinks';
 
-const MainNav = (props) => (
-	<nav className="main-nav">
-    <ul>
-      <li><a onClick={props.handleClick}>Cats</a></li>
-      <li><a onClick={props.handleClick}>{props.type}</a></li>
-      <li><a onClick={props.handleClick}>Computers</a></li>
-    </ul>
-  </nav>
-);
+const MainNav = (props) => {
+
+	const navData = props.navNames;
+	let links = navData.map(name => <li key={name.toString()}><a onClick={props.handleClick}>{name} </a></li>);
+
+		return (
+			<nav className="main-nav">
+		    <ul>
+						{links}
+		    </ul>
+		  </nav>
+		);
+}
 
 
 

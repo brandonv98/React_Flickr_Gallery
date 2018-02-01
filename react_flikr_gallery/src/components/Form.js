@@ -19,7 +19,6 @@ export default class Form extends Component {
 
 
 	render() {
-		console.log('Click value is : ', this.state.searchText);
 		return (
 		<div>
 			<form className="search-form" onSubmit={this.handleSubmit} >
