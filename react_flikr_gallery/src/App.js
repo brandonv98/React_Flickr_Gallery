@@ -21,7 +21,7 @@ class App extends Component {
 			photos: [],
 			isLoading: true, // Is loading new images?
 			searchText: '', // Title for user's results
-			navName: ['Cats', 'Dogs', 'Computers'],
+			navName: ['Cats', 'Dogs', 'Computers'], // Nav link names
 		};
 	}
 
