@@ -9,9 +9,7 @@ const ResultList = props => {
 	const results = props.data;
 	// Loop threw photos data
 	let photos = results.map(photo =>
-		<Photo
-			key={photo.id}
-			url={'https://farm' + ˇphoto.farm + '.staticflickr.com/' + photo.server + '/' + photo.id + '_' + photo.secret + '.jpg'}/>);
+		<Photo key={photo.id} url={'https://farm' + photo.farm + '.staticflickr.com/' + photo.server + '/' + photo.id + '_' + photo.secret + '.jpg'}/>);
 
 // Test for 404 error code
 	const isNoResults = results.length;
