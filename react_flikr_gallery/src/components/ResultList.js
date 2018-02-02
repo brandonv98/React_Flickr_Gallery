@@ -11,7 +11,7 @@ const ResultList = props => {
 	let photos = results.map(photo =>
 		<Photo
 			key={photo.id}
-			url={'https://farm' + photo.farm + '.staticflickr.com/' + photo.server + '/' + photo.id + '_' + photo.secret + '.jpg'}/>);
+			url={'https://farm' + ˇphoto.farm + '.staticflickr.com/' + photo.server + '/' + photo.id + '_' + photo.secret + '.jpg'}/>);
 
 // Test for 404 error code
 	const isNoResults = results.length;
