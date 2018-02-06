@@ -1,5 +1,5 @@
 import React from 'react';
-//////////
+////////////
 // 404 error page "NOT FOUND" ///////
 /////////
 const NotFound = (props) => (

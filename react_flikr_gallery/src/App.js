@@ -3,6 +3,10 @@ import './App.css';
 
 //dependency's import
 import axios from 'axios';
+import {
+BrowserRouter,
+Route
+} from 'react-router-dom';
 
 //apiKey secret ;)
 import apiKey from './config';
@@ -48,7 +52,6 @@ class App extends Component {
 
 // Navigation handling
 	handleClick = (e) => {
-		    e.preventDefault();
 		    console.log('Array value is : ', e.target.textContent);
 				this.preformSearch(e.target.textContent);
 				}
@@ -56,28 +59,46 @@ class App extends Component {
 
 	render() {
 		return (
-			<div className="App">
+			// <div className="App">
 
-          <div className="container">
-            <Form
-							onSearch={this.preformSearch}
-						 />
+						 <BrowserRouter>
+							 <div className="container">
 
-						 <MainNav
-			 				handleClick={this.handleClick}
-							navNames={this.state.navName}
-						/>
-						{/* loading state */}
-						{
-							(this.state.isLoading)
-							? <p>LOADING...</p>
-							: <ResultList
-	            	title={this.state.searchText}
-	            	data={this.state.photos}
-							/>
-						}
-          </div>
-      </div>
+ 							 	<Route exact path={`/${this.state.searchText}`} render={ () =>
+										<Form
+ 		 									onSearch={this.preformSearch}
+ 										/>
+										} />
+
+									<Route path="/" render={ () =>
+										<Form
+ 		 									onSearch={this.preformSearch}
+ 										/>
+										}
+									/>
+
+									<Route path="/" render={ () =>
+										<MainNav
+											handleClick={this.handleClick}
+		 									navNames={this.state.navName}
+											// handleNavLink={`/${this.state.searchText}`}
+											/>}
+										/>
+
+									<Route path="/" render={ () =>
+
+			 								(this.state.isLoading)
+			 								? <p>LOADING...</p>
+			 								: <ResultList
+			 	            			title={this.state.searchText}
+			 	            			data={this.state.photos}
+			 								/>
+
+									}
+									/>
+
+	          	</div>
+						</BrowserRouter>
 		);
 	}
 }
