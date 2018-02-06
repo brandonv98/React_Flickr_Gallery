@@ -3,9 +3,9 @@ import React, { Component } from 'react';
 export default class Form extends Component {
 
 //search local state
-	state = {
-		searchText: ''
-	}
+	// state = {
+	// 	searchText: ''
+	// }
 // hanle search impute
 	onSearchChange = e => {
 		this.setState(

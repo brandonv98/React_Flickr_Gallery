@@ -4,8 +4,9 @@ import './App.css';
 //dependency's import
 import axios from 'axios';
 import {
-BrowserRouter,
-Route
+	BrowserRouter,
+	Route,
+	Switch
 } from 'react-router-dom';
 
 //apiKey secret ;)
@@ -15,6 +16,7 @@ import apiKey from './config';
 import Form from './components/Form';
 import ResultList from './components/ResultList';
 import MainNav from './components/MainNav';
+import NotFound from './components/NotFound';
 
 
 class App extends Component {
@@ -64,39 +66,37 @@ class App extends Component {
 						 <BrowserRouter>
 							 <div className="container">
 
- 							 	<Route exact path={`/${this.state.searchText}`} render={ () =>
-										<Form
- 		 									onSearch={this.preformSearch}
- 										/>
-										} />
+								 <Form
+									 onSearch={this.preformSearch}
+								 />
 
-									<Route path="/" render={ () =>
-										<Form
- 		 									onSearch={this.preformSearch}
- 										/>
-										}
-									/>
+									 <MainNav
+										 handleClick={this.handleClick}
+										 navNames={this.state.navName}
+								 />
+								 {/* <Switch> */}
 
-									<Route path="/" render={ () =>
-										<MainNav
-											handleClick={this.handleClick}
-		 									navNames={this.state.navName}
-											// handleNavLink={`/${this.state.searchText}`}
-											/>}
+	 							 	<Route exact path={`/${this.state.searchText}:name`} render={ () =>
+											<Form
+	 		 									onSearch={this.preformSearch}
+	 										/>
+											}
 										/>
 
-									<Route path="/" render={ () =>
+										<Route exact path={`/${this.state.searchText}`} render={ () =>
 
-			 								(this.state.isLoading)
-			 								? <p>LOADING...</p>
-			 								: <ResultList
-			 	            			title={this.state.searchText}
-			 	            			data={this.state.photos}
-			 								/>
+				 								(this.state.isLoading)
+				 								? <p>LOADING...</p>
+				 								: <ResultList
+				 	            			title={this.state.searchText}
+				 	            			data={this.state.photos}
+				 								/>
 
-									}
-									/>
+										}
+										/>
 
+										<Route component={NotFound}/>
+								{/* </Switch> */}
 	          	</div>
 						</BrowserRouter>
 		);

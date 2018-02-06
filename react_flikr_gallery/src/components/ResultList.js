@@ -4,7 +4,7 @@ import Photo from './Photo';
 import NotFound from './NotFound';
 
 
-const ResultList = props => {
+const ResultList = (props) => {
 	//																														https:// + farm{farm-id} + .staticflickr.com/ + {server-id} + / + {id} + _ + {secret} + .jpg
 	const results = props.data;
 	// Loop threw photos data

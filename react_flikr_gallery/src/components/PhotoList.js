@@ -1,7 +1,7 @@
 import React from 'react';
 
 //Image list component
-const PhotoList = props => {
+const PhotoList = (props) => {
 
 	return (
 		<div className="photo-container">
