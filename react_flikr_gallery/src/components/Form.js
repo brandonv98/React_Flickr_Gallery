@@ -2,22 +2,26 @@ import React, { Component } from 'react';
 
 export default class Form extends Component {
 
-//search local state
-	// state = {
-	// 	searchText: ''
-	// }
-// hanle search impute
-	onSearchChange = e => {
-		this.setState(
-			{ searchText: e.target.value });
-	}
-//handle search process
-	handleSubmit = e => {
-		e.preventDefault();
-		this.props.onSearch(this.query.value);
-		e.currentTarget.reset();
+// Search Cache state
+	state = {
+		searchTextCache: '',
 	}
 
+	//Handle search impute
+		onSearchChange = e => {
+			this.setState(
+				{ searchTextCache: e.target.value });
+		}
+
+	//handle search process
+			handleSubmit = e => {
+				e.preventDefault();
+				let searchName = this.query.value;
+				let path = `${searchName}`;
+				this.props.props.history.push(path);
+				this.props.onSearch(path);
+				e.currentTarget.reset();
+			}
 
 	render() {
 		return (

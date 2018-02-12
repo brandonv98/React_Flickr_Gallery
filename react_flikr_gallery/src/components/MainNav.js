@@ -15,11 +15,8 @@ const MainNav = (props) => {
 		return (
 			<nav className="main-nav">
 		    <ul>
-					{/* <Link to="cats" onClick={props.handleClick}>{links} </Link> */}
 					{/* link names */}
 						{links}
-						{/* <Links allLinks={links}/> */}
-
 		    </ul>
 		  </nav>
 		);
