@@ -7,7 +7,7 @@ import {
 // Images component
 const Links = (props) => (
 	<li>
-    <NavLink to={`/search/${props.name}`} onClick={props.handleClick}>{props.name}</NavLink>
+    <NavLink to={`/${props.name}`} onClick={props.handleClick}>{props.name}</NavLink>
 	</li>
 );
 

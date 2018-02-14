@@ -37,7 +37,7 @@ export default class RouteIndex extends Component {
 			isLoading: true, // Is loading new images?
 			resaultsTitle: 'code', // Title for user's results
 			searchTextCache: '', // Search Cache
-			navName: ['Cats', 'Dogs', 'Computers'], // Nav link names
+			navName: ['Cats', 'Dogs', 'Computers', 'Search'], // Nav link names
 		};
 	}
 
@@ -76,7 +76,7 @@ export default class RouteIndex extends Component {
 		return (
 			<div>
 						{/* Form component */}
-				<Route path='/' render={() =>
+				<Route path='/search' render={() =>
 					<Form onSearch={this.preformSearch} props={this.props} />}/>
 
 					{/* Navigation component */}
@@ -87,12 +87,21 @@ export default class RouteIndex extends Component {
 					<Switch>
 
 					{/* Search Data */}
-					<Route exact path='/search/:searchData' render={() =>
+					<Route path='/:searchData' render={() =>
 					// {/* isLoading yes or no? Conditional (ternary) Operator */}
 							(this.state.isLoading)
 							? <p>Loading...</p>
 							: <ResultList title={this.state.resaultsTitle} data={this.state.photos}/>
 						 }/>
+
+						 <Route path='/search/:searchData' render={() =>
+					// {/* isLoading yes or no? Conditional (ternary) Operator */}
+							(this.state.isLoading)
+							? <p>Loading...</p>
+							: <ResultList title={this.state.resaultsTitle} data={this.state.photos}/>
+						 }/>
+
+
 
 					<Route component={NotFound} />
 				</Switch>
