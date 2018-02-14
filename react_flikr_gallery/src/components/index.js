@@ -44,7 +44,8 @@ export default class RouteIndex extends Component {
 
 
 	componentDidMount() {
-		let query = this.props.match.params.data || this.state.resaultsTitle; // if not defined this will = 'code'
+		let query = this.props.match.params.data // || this.state.resaultsTitle; // if not defined this will = 'code'
+		console.log(query);
 		this.preformSearch(query);
 	}
 	////////////////////////////
@@ -75,7 +76,7 @@ export default class RouteIndex extends Component {
 		return (
 			<div>
 						{/* Form component */}
-				<Route	path='/' render={() =>
+				<Route path='/' render={() =>
 					<Form onSearch={this.preformSearch} props={this.props} />}/>
 
 					{/* Navigation component */}
@@ -86,7 +87,7 @@ export default class RouteIndex extends Component {
 					<Switch>
 
 					{/* Search Data */}
-					<Route path='/:searchData' render={() =>
+					<Route exact path='/search/:searchData' render={() =>
 					// {/* isLoading yes or no? Conditional (ternary) Operator */}
 							(this.state.isLoading)
 							? <p>Loading...</p>

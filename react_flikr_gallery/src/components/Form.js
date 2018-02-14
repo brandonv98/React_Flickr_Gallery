@@ -17,9 +17,9 @@ export default class Form extends Component {
 			handleSubmit = e => {
 				e.preventDefault();
 				let searchName = this.query.value;
-				let path = `${searchName}`;
-				this.props.props.history.push(path);
-				this.props.onSearch(path);
+				let path = `/search/${searchName}`;
+				this.props.props.history.push(path); //push the url path
+				this.props.onSearch(searchName); // push user's value of search input
 				e.currentTarget.reset();
 			}
 
