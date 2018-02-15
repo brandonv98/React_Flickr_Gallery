@@ -41,12 +41,14 @@ export default class RouteIndex extends Component {
 		};
 	}
 
-
-
 	componentDidMount() {
 		let query = this.props.match.params.data || this.state.resaultsTitle; // if not defined this will = 'code'
-		console.log(query);
 		this.preformSearch(query);
+	}
+
+	componentWillReceiveProps(nextProps) {
+		this.setState(
+			{ isLoading: true });
 	}
 	////////////////////////////
 //API Connection
