@@ -48,7 +48,7 @@ export default class RouteIndex extends Component {
 
 	componentWillReceiveProps(nextProps) {
 		this.setState(
-			{ isLoading: true });
+			{ isLoading: true }); // isLoading handling
 	}
 	////////////////////////////
 //API Connection
@@ -58,7 +58,7 @@ export default class RouteIndex extends Component {
 		axios.get(`https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${query}&per_page=24&format=json&nojsoncallback=1`)
 			.then(response => {
 				this.setState({
-					photos: response.data.photos.photo, // Array Data
+					photos: response.data.photos.photo, //Photo's Array Data
 					resaultsTitle: query, // Results Title
 					isLoading: false, // Oviii :)
 				});
