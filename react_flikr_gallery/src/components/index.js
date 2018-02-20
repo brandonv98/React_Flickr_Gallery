@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 //dependency's import
 import axios from 'axios';
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 import {
 	Route,
 	Switch
