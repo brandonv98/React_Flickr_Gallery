@@ -13,7 +13,7 @@
       export default apiKey;**
       
 4) Open up your terminal and change directories to the downloaded project folder 'react_flickr_gallery'
-     `cd github_web_pages/`
+     `cd react_flickr_gallery/`
 - react_flickr_gallery is the root directory
 
 5) In the root directory type the following in your terminal
