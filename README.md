@@ -12,13 +12,18 @@
    **const apiKey = '*YOUR API KEY*';
       export default apiKey;**
       
-      4) Open up your terminal and change directories to the downloaded project file 'react_flickr_gallery'
-      
-      5) Type **npm start** in your terminal to run the project.
-      
-      6) If nothing shows up, stop your terminal (CMD + C) or (Control + C), then type **npm install** to install the
-      dependencies.
-      
-      7) Re-run the **npm start** command.
-      
+4) Open up your terminal and change directories to the downloaded project folder 'react_flickr_gallery'
+     `cd github_web_pages/`
+- react_flickr_gallery is the root directory
+
+5) In the root directory type the following in your terminal
+    `npm install`
+to install the dependencies.
+
+6) Once install is completed. Type
+    `npm start`
+in your terminal to run the project & start a local server.
+
+7) To stop the local server, in your terminal  use (CMD + C) or on **Windows** (Control + C).
+            
       
