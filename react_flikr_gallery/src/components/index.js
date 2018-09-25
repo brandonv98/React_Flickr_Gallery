@@ -75,11 +75,16 @@ export default class RouteIndex extends Component {
 
 
 	render() {
+		console.log(this.props);
 		return (
 			<div>
 						{/* Form component */}
-				<Route path='/search' render={() =>
-					<Form onSearch={this.preformSearch} props={this.props} />}/>
+				{
+					(this.props.location.pathname === '/Search')
+						? <Route path='/search' render={() => <Form onSearch={this.preformSearch} props={this.props} /> }/>
+						: <div><h1 className='main--header'>Image Search Gallery</h1></div>
+				}
+				
 
 					{/* Navigation component */}
 					<Route path='/' render={() =>
@@ -92,14 +97,14 @@ export default class RouteIndex extends Component {
 					<Route path='/:searchData' render={() =>
 					// {/* isLoading yes or no? Conditional (ternary) Operator */}
 							(this.state.isLoading)
-							? <p>Loading...</p>
+							? <div class="loader"></div>
 							: <ResultList title={this.state.resaultsTitle} data={this.state.photos}/>
 						 }/>
 
 						 <Route path='/search/:searchData' render={() =>
 					// {/* isLoading yes or no? Conditional (ternary) Operator */}
 							(this.state.isLoading)
-							? <p>Loading...</p>
+							? <div class="loader"></div>
 							: <ResultList title={this.state.resaultsTitle} data={this.state.photos}/>
 						 }/>
 
