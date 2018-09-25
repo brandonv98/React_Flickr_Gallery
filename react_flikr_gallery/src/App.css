@@ -19,6 +19,10 @@ a {
   text-decoration: none;
 }
 
+h1.main--header {
+  color: rgba(75, 70, 70, 0.747);
+}
+
 .search-form {
   max-width: 460px;
   display: flex;
@@ -27,7 +31,7 @@ a {
 
 .search-form button {
   outline: none;
-  background-color: #438bbd;
+  background-color: tomato;
   border: none;
   padding: 0px 15px;
   border-radius: 0 0.35em 0.35em 0;
@@ -48,18 +52,27 @@ input {
 .main-nav li {
   width: 100%;
   margin-bottom: 1em;
+  padding: 5px;
 }
 
 .main-nav a {
   display: block;
-  background: #438bbd;
+  background: tomato;
   border-radius: 3px;
-  padding: 5px;
+  padding: 10px;
   color: #fff;
 }
 
 .main-nav .active, .main-nav a:hover, .search-form button:hover {
-  background-color: #275270;
+  transition: 0.81s;
+  background-color: rgba(255, 99, 71, 0.438);
+  font-weight: bold;
+}
+
+.main-nav .active {
+  color: #7472729a !important;
+  font-weight: bold;
+  background-color: rgba(255, 99, 71, 0.438);
 }
 
 .photo-container ul {
@@ -91,6 +104,30 @@ input {
   width: 100%;
 }
 
+/* Loader */
+.loader {
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid tomato;
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
+  margin: auto;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Media break points */
 @media only screen and (max-width: 767px) {
   body {
     padding-top: 2em;
@@ -117,3 +154,4 @@ input {
     width: 100px;
   }
 }
+
