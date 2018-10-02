@@ -38,6 +38,7 @@ export default class RouteIndex extends Component {
 			resaultsTitle: 'code', // Title for user's results
 			searchTextCache: '', // Search Cache
 			navName: ['Cats', 'Dogs', 'Computers', 'Search'], // Nav link names
+			perPage: 24 // Images to render to page.
 		};
 	}
 
@@ -55,7 +56,7 @@ export default class RouteIndex extends Component {
 // more information found here : https://github.com/axios/axios
 	preformSearch = (query) => {
 		// Make a request for a user with a given ID
-		axios.get(`https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${query}&per_page=24&format=json&nojsoncallback=1`)
+		axios.get(`https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${query}&per_page=${this.state.perPage}&format=json&nojsoncallback=1`)
 			.then(response => {
 				this.setState({
 					photos: response.data.photos.photo, //Photo's Array Data
@@ -70,8 +71,8 @@ export default class RouteIndex extends Component {
 
 // Navigation handling
 		handleClick = (e) => {
-				this.preformSearch(e.target.textContent);
-				}
+			this.preformSearch(e.target.textContent);
+		}
 
 
 	render() {
@@ -79,16 +80,15 @@ export default class RouteIndex extends Component {
 		return (
 			<div>
 						{/* Form component */}
-						<Route exact path='/:navLinkData' render={ () => <div><h1 className='main--header'>Image Search Gallery</h1></div>}/>
-				
-						<Route path='/search' render={() => <Form onSearch={this.preformSearch} props={this.props} /> }/>
-						
-				
+					<Route exact path='/:navLinkData' render={ () => <div><h1 className='main--header'>Image Search Gallery</h1></div>}/>
+			
+					<Route path='/search' render={() => <Form onSearch={this.preformSearch} props={this.props} /> }/>
 				
 
 					{/* Navigation component */}
 					<Route path='/' render={() =>
-							<MainNav handleClick={this.handleClick} navNames={this.state.navName}/>} />
+						<MainNav handleClick={this.handleClick} navNames={this.state.navName}/>} 
+					/>
 
 					{/* Not Found Switch */}
 					<Switch>
