@@ -4,8 +4,10 @@ import React from 'react';
 /////////
 const NotFound = (props) => (
 	<li className="not-found">
-    <h3>No Results Found</h3>
-    <p>You search did not return any results. Please try again.</p>
+    <h3>Ugh 404 Error - wishing it wasn't true.</h3>
+    <p>You should be ashamed of that search request...</p>
+    <p>But here you searching for things that we both know don't exist.</p>
+    <p>Now, Get back there and try for something more realistic!</p>
   </li>
 );
 
