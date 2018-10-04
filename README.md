@@ -24,6 +24,6 @@ to install the dependencies.
     `npm start`
 in your terminal to run the project & start a local server.
 
-7) To stop the local server, in your terminal  use (CMD + C) or on **Windows** (Control + C).
+7) To stop the local server, in your terminal  use (Control + C).
             
       
