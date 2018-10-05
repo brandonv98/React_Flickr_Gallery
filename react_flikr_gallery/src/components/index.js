@@ -61,7 +61,7 @@ export default class RouteIndex extends Component {
 				this.setState({
 					photos: response.data.photos.photo, //Photo's Array Data
 					resaultsTitle: query, // Results Title
-					isLoading: false, // Oviii :)
+					isLoading: false, // Set to False
 				});
 			})
 			.catch(error => {
@@ -76,7 +76,7 @@ export default class RouteIndex extends Component {
 
 
 	render() {
-		console.log(this.props);
+
 		return (
 			<div>
 						{/* Form component */}
@@ -91,10 +91,10 @@ export default class RouteIndex extends Component {
 					/>
 
 					{/* Not Found Switch */}
-					<Switch>
-
+					
+				<Switch>
 					{/* Search Data */}
-					<Route path='/:searchData' render={() =>
+						<Route path={`/${this.state.resaultsTitle}`} render={() =>
 					// {/* isLoading yes or no? Conditional (ternary) Operator */}
 							(this.state.isLoading)
 							? <div className="loader"></div>
@@ -107,10 +107,12 @@ export default class RouteIndex extends Component {
 							? <div className="loader"></div>
 							: <ResultList title={this.state.resaultsTitle} data={this.state.photos}/>
 						 }/>
-
-
-
-					<Route component={NotFound} />
+						
+					
+					<Route render={() => 
+					(this.state.isLoading)
+					? <div className="loader"></div>
+					: <NotFound isLoading={this.state.isLoading} />} />
 				</Switch>
 		</div>
 

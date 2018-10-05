@@ -2,7 +2,7 @@ import React from 'react';
 
 import PhotoList from './PhotoList';
 import Photo from './Photo';
-import NotFound from './NotFound';
+import NoResults from './NoResults';
 
 const ResultList = (props) => {
 	//																														https:// + farm{farm-id} + .staticflickr.com/ + {server-id} + / + {id} + _ + {secret} + .jpg
@@ -21,7 +21,7 @@ const ResultList = (props) => {
 					? <PhotoList
 						title={props.title}
 						photos={photos}/>
-					: <NotFound />
+					: <NoResults />
 				}
 		</div>
 	);
